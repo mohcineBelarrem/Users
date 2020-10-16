@@ -15,6 +15,8 @@ struct UsersListView: View {
     
     @State var users : [User]
     
+    @ObservedObject var appModel : AppModel
+    
     var body: some View {
         
         List() {
@@ -23,7 +25,10 @@ struct UsersListView: View {
                 
                 Section() {
                     Button(action: {
-                        print("selected user \(user.name)")
+                        
+                        self.appModel.selectedUser = user
+                        self.appModel.isTaskListViewShown = true
+                        
                     },label: {
                         UserView(user: user)
                     })
@@ -84,6 +89,6 @@ struct UsersListView: View {
 
 struct UsersListView_Previews: PreviewProvider {
     static var previews: some View {
-        UsersListView( users: [User]())
+        UsersListView( users: [User](), appModel: AppModel())
     }
 }
