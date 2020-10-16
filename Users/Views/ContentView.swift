@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var appModel = AppModel()
+    
     var body: some View {
-        UsersListView(users: [User]())
+        NavigationView {
+            
+            VStack() {
+                
+                NavigationLink(
+                    destination: TasksListView(user: appModel.selectedUser),
+                    isActive: $appModel.isTaskListViewShown,
+                    label: {EmptyView()})
+                
+                UsersListView(users: [User](), appModel: self.appModel)
+                .navigationBarTitle("Users")
+            }
+            
+            
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
