@@ -17,3 +17,6 @@ struct User: Codable, Identifiable {
     let email : String
    
 }
+
+
+let dummyUser = User(id: 9999, name: "Hamid el Mardi", username: "helmardi", email: "helmardi@caramail.com")
