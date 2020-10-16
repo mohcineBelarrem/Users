@@ -29,7 +29,11 @@ struct TasksListView: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .onAppear(perform: {fetchTasks(userId: "\(user.id)")})
+            .onAppear(perform: {
+                finishedLoading = false
+                fetchTasks(userId: "\(user.id)")
+                
+            })
             .navigationBarTitle("Tasks",displayMode: .inline)
             
             SpinnerView(isAnimating: !finishedLoading, style: .large, color: .gray)
