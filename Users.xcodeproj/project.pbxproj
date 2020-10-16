@@ -19,6 +19,7 @@
 		B4CA4D63253A032C0050E5DD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4D62253A032C0050E5DD /* Task.swift */; };
 		B4CA4D67253A14420050E5DD /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4D66253A14420050E5DD /* UserView.swift */; };
 		B4CA4D6B253A20A70050E5DD /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4D6A253A20A70050E5DD /* AppModel.swift */; };
+		B4CA4D6E253A21D30050E5DD /* TasksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4D6D253A21D30050E5DD /* TasksListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B4CA4D62253A032C0050E5DD /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B4CA4D66253A14420050E5DD /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		B4CA4D6A253A20A70050E5DD /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		B4CA4D6D253A21D30050E5DD /* TasksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				B4CA4D402539FC680050E5DD /* ContentView.swift */,
 				B4CA4D532539FE550050E5DD /* UsersListView.swift */,
 				B4CA4D66253A14420050E5DD /* UserView.swift */,
+				B4CA4D6D253A21D30050E5DD /* TasksListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4CA4D3D2539FC680050E5DD /* AppDelegate.swift in Sources */,
+				B4CA4D6E253A21D30050E5DD /* TasksListView.swift in Sources */,
 				B4CA4D3F2539FC680050E5DD /* SceneDelegate.swift in Sources */,
 				B4CA4D60253A02B40050E5DD /* User.swift in Sources */,
 				B4CA4D67253A14420050E5DD /* UserView.swift in Sources */,
