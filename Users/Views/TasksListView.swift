@@ -60,7 +60,9 @@ struct TasksListView: View {
             return
         }
         
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        
+        request.timeoutInterval = 10
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             
