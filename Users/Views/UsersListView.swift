@@ -16,12 +16,24 @@ struct UsersListView: View {
     @State var users : [User]
     
     var body: some View {
-       
-        List(users) { user in
         
-            Text("\(user.name)")
-        
-        }.onAppear(perform: {fetchUsers()})
+        List() {
+            
+            ForEach(users) { user in
+                
+                Section() {
+                    Button(action: {
+                        print("selected user \(user.name)")
+                    },label: {
+                        UserView(user: user)
+                    })
+                    .foregroundColor(.black)
+                }
+            }
+        }
+        .listStyle(GroupedListStyle())
+        .onAppear(perform: {fetchUsers()})
+            
     }
     
     
