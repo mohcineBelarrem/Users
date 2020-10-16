@@ -9,23 +9,34 @@ import SwiftUI
 
 struct TasksListView: View {
     
+    @State var finishedLoading = true
+    
+    @State var noData = false
+    
     @State var user : User
     
     @State var tasks = [Task]()
     
     var body: some View {
         
-        List() {
-            
-            ForEach(tasks) { task in
-                Section() {
-                       TaskView(task: task)
+        ZStack {
+            List() {
+                
+                ForEach(tasks) { task in
+                    Section() {
+                           TaskView(task: task)
+                    }
                 }
             }
+            .listStyle(GroupedListStyle())
+            .onAppear(perform: {fetchTasks(userId: "\(user.id)")})
+            .navigationBarTitle("Tasks",displayMode: .inline)
+            
+            SpinnerView(isAnimating: !finishedLoading, style: .large, color: .gray)
+            
+            Text("No Tasks Data 😵")
+                .opacity(noData ? 1.0 : 0.0)
         }
-        .listStyle(GroupedListStyle())
-        .onAppear(perform: {fetchTasks(userId: "\(user.id)")})
-        .navigationBarTitle("Tasks",displayMode: .inline)
         
     }
     
@@ -40,20 +51,18 @@ struct TasksListView: View {
         components.queryItems = [NetworkModel.tasksQueryItem(userId: userId)]
         
         guard let url = components.url else {
-            //self.finishedLoading = true
-            //noData = true
+            finishedLoading = true
+            noData = true
             return
         }
-        
-        //print(url)
         
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             
             guard let data = data else {
-                //self.finishedLoading = true
-                //noData = true
+                finishedLoading = true
+                noData = true
                 return
             }
             
@@ -61,12 +70,12 @@ struct TasksListView: View {
                 DispatchQueue.main.async {
                     self.tasks = tasks
                 }
-                //self.finishedLoading = true
-                //noData = false
+                finishedLoading = true
+                noData = false
                 return
             }
             
-            //noData = true
+            noData = true
             print("Failure : \(error?.localizedDescription ?? "Unknown error")")
         }.resume()
         
