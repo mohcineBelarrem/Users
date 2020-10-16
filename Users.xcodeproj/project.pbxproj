@@ -21,6 +21,7 @@
 		B4CA4D6B253A20A70050E5DD /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4D6A253A20A70050E5DD /* AppModel.swift */; };
 		B4CA4D6E253A21D30050E5DD /* TasksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4D6D253A21D30050E5DD /* TasksListView.swift */; };
 		B4CA4D71253A26C60050E5DD /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4D70253A26C60050E5DD /* TaskView.swift */; };
+		B4CA4D74253A32470050E5DD /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4D73253A32470050E5DD /* SpinnerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B4CA4D6A253A20A70050E5DD /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		B4CA4D6D253A21D30050E5DD /* TasksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListView.swift; sourceTree = "<group>"; };
 		B4CA4D70253A26C60050E5DD /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
+		B4CA4D73253A32470050E5DD /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				B4CA4D66253A14420050E5DD /* UserView.swift */,
 				B4CA4D6D253A21D30050E5DD /* TasksListView.swift */,
 				B4CA4D70253A26C60050E5DD /* TaskView.swift */,
+				B4CA4D73253A32470050E5DD /* SpinnerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				B4CA4D5D253A00DD0050E5DD /* NetworkModel.swift in Sources */,
 				B4CA4D63253A032C0050E5DD /* Task.swift in Sources */,
 				B4CA4D71253A26C60050E5DD /* TaskView.swift in Sources */,
+				B4CA4D74253A32470050E5DD /* SpinnerView.swift in Sources */,
 				B4CA4D542539FE550050E5DD /* UsersListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
