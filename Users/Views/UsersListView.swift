@@ -9,9 +9,9 @@ import SwiftUI
 
 struct UsersListView: View {
     
-    //@State var finishedLoading = true
+    @State var finishedLoading = true
     
-    //@State var noData = false
+    @State var noData = false
     
     @State var users : [User]
     
@@ -19,25 +19,33 @@ struct UsersListView: View {
     
     var body: some View {
         
-        List() {
-            
-            ForEach(users) { user in
+        ZStack {
+            List() {
                 
-                Section() {
-                    Button(action: {
-                        
-                        self.appModel.selectedUser = user
-                        self.appModel.isTaskListViewShown = true
-                        
-                    },label: {
-                        UserView(user: user)
-                    })
-                    .foregroundColor(.black)
+                ForEach(users) { user in
+                    
+                    Section() {
+                        Button(action: {
+                            
+                            self.appModel.selectedUser = user
+                            self.appModel.isTaskListViewShown = true
+                            
+                        },label: {
+                            UserView(user: user)
+                        })
+                        .foregroundColor(.black)
+                    }
                 }
             }
+            .listStyle(GroupedListStyle())
+            .onAppear(perform: {fetchUsers()})
+            
+            SpinnerView(isAnimating: !finishedLoading, style: .large, color: .gray)
+            
+            Text("No User Data 😵")
+                .opacity(noData ? 1.0 : 0.0)
+            
         }
-        .listStyle(GroupedListStyle())
-        .onAppear(perform: {fetchUsers()})
             
     }
     
@@ -52,8 +60,8 @@ struct UsersListView: View {
         components.path = NetworkModel.usersPath
         
         guard let url = components.url else {
-            //self.finishedLoading = true
-            //noData = true
+            finishedLoading = true
+            noData = true
             return
         }
         
@@ -64,8 +72,8 @@ struct UsersListView: View {
         URLSession.shared.dataTask(with: request) { data, response, error in
             
             guard let data = data else {
-                //self.finishedLoading = true
-                //noData = true
+                finishedLoading = true
+                noData = true
                 return
             }
             
@@ -73,12 +81,12 @@ struct UsersListView: View {
                 DispatchQueue.main.async {
                     self.users = users
                 }
-                //self.finishedLoading = true
-                //noData = false
+                finishedLoading = true
+                noData = false
                 return
             }
             
-            //noData = true
+            noData = true
             print("Failure : \(error?.localizedDescription ?? "Unknown error")")
         }.resume()
         
