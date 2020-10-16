@@ -19,11 +19,14 @@ struct UserView: View {
                 
                 HStack {
                     Image(systemName: "person")
+                        .foregroundColor(Color("textBlack"))
                     Text(user.name)
+                        .foregroundColor(Color("textBlack"))
                 }
                 
                 HStack {
                     Image(systemName: "number")
+                        .foregroundColor(Color("textBlack"))
                     Text(user.username.lowercased())
                         .foregroundColor(.gray)
                         .font(.title3)
@@ -31,6 +34,7 @@ struct UserView: View {
                 
                 HStack {
                     Image(systemName: "envelope")
+                        .foregroundColor(Color("textBlack"))
                     Text(user.email.lowercased())
                         .foregroundColor(.gray)
                         .font(.title3)
@@ -39,6 +43,7 @@ struct UserView: View {
             }
             Spacer()
             Image(systemName: "chevron.right")
+                .foregroundColor(Color("textBlack"))
         }
     }
 }
