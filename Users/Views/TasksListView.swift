@@ -90,6 +90,6 @@ struct TasksListView: View {
 
 struct TasksListView_Previews: PreviewProvider {
     static var previews: some View {
-        TasksListView(user: dummyUser, tasks: dummyTasksList)
+        TasksListView(user: User.dummyUser(), tasks: dummyTasksList)
     }
 }

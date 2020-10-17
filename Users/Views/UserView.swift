@@ -50,6 +50,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView(user: dummyUser)
+        UserView(user: User.dummyUser())
     }
 }
