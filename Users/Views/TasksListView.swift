@@ -17,6 +17,8 @@ struct TasksListView: View {
     
     @State var tasks = [Task]()
     
+    @ObservedObject var appModel : AppModel
+    
     var body: some View {
         
         ZStack {
@@ -30,8 +32,12 @@ struct TasksListView: View {
             }
             .listStyle(GroupedListStyle())
             .onAppear(perform: {
-                finishedLoading = false
-                fetchTasks(userId: "\(user.id)")
+                
+                tasks = appModel.getTasks(userId: "\(user.id)")
+                if tasks.isEmpty {
+                    finishedLoading = false
+                    fetchTasks(userId: "\(user.id)")
+                }
                 
             })
             .navigationBarTitle("\(user.username)'s tasks",displayMode: .inline)
@@ -75,6 +81,10 @@ struct TasksListView: View {
             if let tasks = try? JSONDecoder().decode([Task].self, from: data) {
                 DispatchQueue.main.async {
                     self.tasks = tasks
+                    
+                    for task in tasks {
+                        self.appModel.saveObject(object: task)
+                    }
                 }
                 finishedLoading = true
                 noData = false
@@ -90,6 +100,6 @@ struct TasksListView: View {
 
 struct TasksListView_Previews: PreviewProvider {
     static var previews: some View {
-        TasksListView(user: User.dummyUser(), tasks: dummyTasksList)
+        TasksListView(user: User.dummyUser(), tasks: Task.dummyTaskList(), appModel: AppModel())
     }
 }

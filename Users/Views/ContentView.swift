@@ -17,7 +17,7 @@ struct ContentView: View {
             VStack() {
                 
                 NavigationLink(
-                    destination: TasksListView(user: appModel.selectedUser),
+                    destination: TasksListView(user: appModel.selectedUser, appModel: appModel),
                     isActive: $appModel.isTaskListViewShown,
                     label: {EmptyView()})
                 
