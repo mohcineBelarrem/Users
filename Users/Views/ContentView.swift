@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var appModel = AppModel()
+    @ObservedObject var appModel : AppModel
     
     var body: some View {
         NavigationView {
@@ -27,11 +27,12 @@ struct ContentView: View {
             
             
         }.navigationViewStyle(StackNavigationViewStyle())
+
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(appModel: AppModel())
     }
 }
