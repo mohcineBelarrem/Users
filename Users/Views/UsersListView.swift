@@ -38,7 +38,12 @@ struct UsersListView: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .onAppear(perform: {fetchUsers()})
+            .onAppear(perform: {
+                if users.isEmpty {
+                    finishedLoading = false
+                    fetchUsers()
+                }
+            })
             
             SpinnerView(isAnimating: !finishedLoading, style: .large, color: .gray)
             
