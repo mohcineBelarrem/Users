@@ -26,6 +26,7 @@
 		B4CB473B253AF7BA0069145D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B4CB473A253AF7BA0069145D /* RealmSwift */; };
 		B4D90006253BAF0400D171BB /* UsersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D90005253BAF0400D171BB /* UsersTests.swift */; };
 		B4D90010253BB13B00D171BB /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = B4D9000F253BB13B00D171BB /* users.json */; };
+		B4D9001A253BB7B600D171BB /* tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = B4D90019253BB7B600D171BB /* tasks.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		B4D90005253BAF0400D171BB /* UsersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTests.swift; sourceTree = "<group>"; };
 		B4D90007253BAF0400D171BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4D9000F253BB13B00D171BB /* users.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		B4D90019253BB7B600D171BB /* tasks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tasks.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				B4D90005253BAF0400D171BB /* UsersTests.swift */,
 				B4D90007253BAF0400D171BB /* Info.plist */,
 				B4D9000F253BB13B00D171BB /* users.json */,
+				B4D90019253BB7B600D171BB /* tasks.json */,
 			);
 			path = UsersTests;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4D9001A253BB7B600D171BB /* tasks.json in Resources */,
 				B4D90010253BB13B00D171BB /* users.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
