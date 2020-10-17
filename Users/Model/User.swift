@@ -6,17 +6,25 @@
 //
 
 import Foundation
+import RealmSwift
 
 
-
-struct User: Codable, Identifiable {
+class User: Object, Codable, Identifiable {
     
-    let id: Int
-    let name: String
-    let username: String
-    let email : String
+    @objc dynamic var id = 0 
+    @objc dynamic var name = ""
+    @objc dynamic var username = ""
+    @objc dynamic var email = ""
    
+    
+    static func dummyUser() -> User {
+        let user = User()
+        user.id = 9999
+        user.name = "Hamid El Mardi"
+        user.username = "helmardi"
+        user.email = "helmardi@caramail.com"
+        
+        return user
+    }
 }
 
-
-let dummyUser = User(id: 9999, name: "Hamid el Mardi", username: "helmardi", email: "helmardi@caramail.com")
