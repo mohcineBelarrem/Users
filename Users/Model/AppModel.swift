@@ -44,12 +44,9 @@ class AppModel : ObservableObject {
         
         var users = [User]()
         
-        let objects =  realm.objects(User.self)
-        
-        for object in objects {
-            
-            users.append(object)
-        }
+        realm.objects(User.self).forEach({ user in
+            users.append(user)
+        })
         
         return users
     }
@@ -57,14 +54,11 @@ class AppModel : ObservableObject {
     
     func getTasks(userId : String) -> [Task] {
         
-        let objects = realm.objects(Task.self).filter("userId == \(userId)")
-        
         var tasks = [Task]()
         
-        for object in objects {
-            
-            tasks.append(object)
-        }
+        realm.objects(Task.self).filter("userId == \(userId)").forEach({task in
+            tasks.append(task)
+        })
         
         return tasks
     }
