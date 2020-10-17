@@ -50,6 +50,44 @@ class UsersTests: XCTestCase {
         
         
     }
+    
+    func testJSONMappingForTasks() throws {
+        let bundle = Bundle(for: type(of: self))
+
+        let file = "tasks.json"
+        
+        guard let url = bundle.url(forResource: file, withExtension: nil) else {
+            XCTFail("Couldn't locate \(file)")
+            return
+        }
+
+        guard let data = try? Data(contentsOf: url) else {
+            XCTFail("Couldn't load data from \(file)")
+            return
+        }
+
+        let decoder = JSONDecoder()
+
+        guard let tasks = try? decoder.decode([Task].self, from: data) else {
+            XCTFail("Failed to decode \(file) from bundle.")
+            return
+        }
+        
+        
+        XCTAssertEqual(tasks.count, 3)
+        
+        let task1 = tasks[0]
+        let task2 = tasks[1]
+        let task3 = tasks[2]
+        
+        
+        XCTAssertEqual(task1.title, "Task 1")
+        
+        XCTAssertEqual(task2.id,2)
+        
+        XCTAssertTrue(task3.completed)
+        
+     }
 
 }
 
