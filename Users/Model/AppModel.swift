@@ -53,4 +53,20 @@ class AppModel : ObservableObject {
         
         return users
     }
+   
+    
+    func getTasks(userId : String) -> [Task] {
+        
+        let objects = realm.objects(Task.self).filter("userId == \(userId)")
+        
+        var tasks = [Task]()
+        
+        for object in objects {
+            
+            tasks.append(object)
+        }
+        
+        return tasks
+    }
+    
 }
