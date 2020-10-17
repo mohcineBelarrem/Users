@@ -26,6 +26,6 @@ struct TaskView: View {
 
 struct TaskView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskView(task: dummyTasksList[0])
+        TaskView(task: Task.dummyTaskList()[1])
     }
 }
