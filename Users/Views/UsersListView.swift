@@ -39,6 +39,7 @@ struct UsersListView: View {
             }
             .listStyle(GroupedListStyle())
             .onAppear(perform: {
+                users = appModel.getUsers()
                 if users.isEmpty {
                     finishedLoading = false
                     fetchUsers()
@@ -85,6 +86,10 @@ struct UsersListView: View {
             if let users = try? JSONDecoder().decode([User].self, from: data) {
                 DispatchQueue.main.async {
                     self.users = users
+                    
+                    for user in users {
+                        self.appModel.saveObject(object: user)
+                    }
                 }
                 finishedLoading = true
                 noData = false
