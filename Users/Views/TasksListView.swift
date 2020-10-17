@@ -34,7 +34,7 @@ struct TasksListView: View {
                 fetchTasks(userId: "\(user.id)")
                 
             })
-            .navigationBarTitle("Tasks",displayMode: .inline)
+            .navigationBarTitle("\(user.username)'s tasks",displayMode: .inline)
             
             SpinnerView(isAnimating: !finishedLoading, style: .large, color: .gray)
             
