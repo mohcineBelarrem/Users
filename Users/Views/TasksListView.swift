@@ -85,6 +85,9 @@ struct TasksListView: View {
                     for task in tasks {
                         self.appModel.saveObject(object: task)
                     }
+                    
+                    self.appModel.markUserLoaded(userId:"\(user.id)")
+                    
                 }
                 finishedLoading = true
                 noData = false

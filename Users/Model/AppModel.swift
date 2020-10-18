@@ -40,6 +40,25 @@ class AppModel : ObservableObject {
         }
     }
     
+    
+    func markUserLoaded(userId : String) {
+       
+        guard let user = realm.objects(User.self).filter("id == \(userId)").first else {
+            return
+        }
+        
+        do {
+            try realm.write{
+                user.hasBeenLoaded = true
+            }
+        }
+        catch {
+            print("Couldn't mark the user")
+        }
+        
+    }
+    
+    
     func getUsers() -> [User] {
         
         var users = [User]()
