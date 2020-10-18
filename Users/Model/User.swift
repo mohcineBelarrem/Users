@@ -15,6 +15,11 @@ class User: Object, Codable, Identifiable {
     @objc dynamic var name = ""
     @objc dynamic var username = ""
     @objc dynamic var email = ""
+    @objc dynamic var hasBeenLoaded = false
+    
+    private enum CodingKeys: String, CodingKey {
+        case id, name,username,email
+    }
    
     
     static func dummyUser() -> User {
@@ -23,6 +28,7 @@ class User: Object, Codable, Identifiable {
         user.name = "Hamid El Mardi"
         user.username = "helmardi"
         user.email = "helmardi@caramail.com"
+        user.hasBeenLoaded = true
         
         return user
     }
