@@ -13,7 +13,7 @@ struct UserView: View {
     
     var body: some View {
          
-        HStack() {
+        HStack(spacing:20) {
             
             VStack(alignment: .leading, spacing: 5) {
                 
@@ -42,6 +42,11 @@ struct UserView: View {
                 
             }
             Spacer()
+            
+            Image(systemName: "arrow.down.doc")
+                .opacity(user.hasBeenLoaded ? 1.0 : 0.0)
+                .foregroundColor(Color("textBlack"))
+            
             Image(systemName: "chevron.right")
                 .foregroundColor(Color("textBlack"))
         }
